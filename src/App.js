@@ -1,20 +1,23 @@
 import { useState } from 'react';
 import './App.css';
 import Box from "./component/Box"
+import rock from "./assets/rok.png"
+import sis from "./assets/sis.png"
+import pap from "./assets/paper.png"
 
 
 const choice = {
   rock: {
     name: "rock",
-    img: "https://cdn-icons-png.flaticon.com/512/1527/1527445.png"
+    img: rock
   },
   sis: {
     name: "sis",
-    img: "https://cdn-icons-png.flaticon.com/512/4973/4973989.png"
+    img: sis
   },
   paper: {
     name: "paper",
-    img: "https://i.pinimg.com/474x/1e/61/c7/1e61c7bd2077950e94950920afdb4ca7.jpg"
+    img: pap
   }
 }
 function App() {
@@ -51,14 +54,24 @@ function App() {
   return (
     <div >
       <div className='container'>
-        <Box title={"You"} item={userSelect} result={result} />
-        <Box title={"Computer"} item={comSelect} result={result} />
+        <div className='content'>
+          <Box title={"You"} item={userSelect} result={result} />
+          <h2>VS</h2>
+          <Box title={"Computer"} item={comSelect} result={result} />
+        </div>
+        <div className='btn_wrap'>
+          <button onClick={() => play("rock")}>
+            <img src={rock} alt="rock" />
+          </button>
+          <button onClick={() => play("sis")}>
+            <img src={sis} alt="rock" />
+          </button>
+          <button onClick={() => play("paper")}>
+            <img src={pap} alt="rock" />
+          </button>
+        </div>
       </div>
-      <div className='container'>
-        <button onClick={() => play("rock")}>묵</button>
-        <button onClick={() => play("sis")}>찌</button>
-        <button onClick={() => play("paper")}>빠</button>
-      </div>
+
     </div>
   );
 }
